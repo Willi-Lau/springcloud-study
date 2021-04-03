@@ -3,7 +3,6 @@ package com.lwy.demo.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
  * 通用返回给前端的状态码 来判断返回的信息是否有错误等

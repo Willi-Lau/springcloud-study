@@ -1,7 +1,6 @@
 package com.lwy.demo.entity;
 
 
-import com.sun.tracing.dtrace.ArgsAttributes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
