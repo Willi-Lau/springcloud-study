@@ -8,10 +8,10 @@ spring:
     name: cloiu-payment-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/fruit?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/payment8001?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: 123456
+    password: root
 
 mybatis:
     type-aliases-package: com.lwy.demo.entity
