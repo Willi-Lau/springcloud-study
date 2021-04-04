@@ -1,11 +1,11 @@
 server:
-  port: 8001
+  port: 8002
 
 
 
 spring:
   application:
-    name: cloud-payment-service   #名字和8002相同
+    name: cloud-payment-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver

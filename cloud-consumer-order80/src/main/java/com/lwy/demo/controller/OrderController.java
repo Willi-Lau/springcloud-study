@@ -14,8 +14,11 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class OrderController
 {
-    //通信地址
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //通信地址 单机
+    //public static final String PAYMENT_URL = "http://localhost:8001";
+    //通信地址 负载均衡 写application.yml里配置的spring application name 项目名字
+    //这样会随机访问 项目名为CLOUD-PAYMENT-SERVICE 的所有端口 8001 8002.。。
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Autowired
     private RestTemplate restTemplate;

@@ -9,15 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-
 @RestController
 @Slf4j //日志
 public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
-    //读取本服务的端口号
+     //读取本服务的端口号
     @Value("${server.port}")
     private String serverPort;
 
@@ -44,7 +42,7 @@ public class PaymentController {
         log.info("*********查询结果"+payment);
         if(payment != null)
         {
-            return new CommonResult(200,"查询成功，port"+serverPort+"   ",payment);
+            return new CommonResult(200,"查询成功,port"+serverPort+"   ",payment);
         }
         else
         {
