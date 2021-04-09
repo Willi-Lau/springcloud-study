@@ -1,16 +1,14 @@
 package com.lwy.demo;
 
-
+import com.lwy.demo.entity.Payment;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient        //服务发现标签
-public class PayMent8002 {
+@EnableDiscoveryClient       //zookeeper 服务i其
+public class PayMent8004 {
     public static void main(String[] args) {
-        SpringApplication.run(PayMent8002.class,args);
+        SpringApplication.run(PayMent8004.class,args);
     }
 }

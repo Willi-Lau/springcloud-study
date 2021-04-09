@@ -4,12 +4,17 @@ package com.lwy.demo.controller;
 import com.lwy.demo.entity.CommonResult;
 import com.lwy.demo.entity.Payment;
 import com.lwy.demo.service.PaymentService;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j //日志
@@ -20,6 +25,10 @@ public class PaymentController {
     //读取本服务的端口号
     @Value("${server.port}")
     private String serverPort;
+
+    //服务发现    注意是cloud包下的  返回服务列表清单
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment){
@@ -53,5 +62,37 @@ public class PaymentController {
 
     }
 
+    /**
+     * 这里是返回所有的服务列表清单
+     * @return
+     * {
+     *     "code": 200,
+     *     "message": "返回成功",
+     *     "data": [
+     *         "cloud-payment-service",
+     *         "cloud-consumer-order80"
+     *     ]
+     * }
+     */
+    @GetMapping(value = "/payment/getdiscovery")
+    public Object discover(){
 
-}
+        List<String> list = discoveryClient.getServices();
+        list.forEach((i)->{
+            System.out.println("***************"+i);
+        });
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service");//这里写的是服务器的名字
+
+        instances.forEach((i)->{
+            log.info(i.getServiceId()+"\t"+i.getHost()+"\t"+i.getPort()+"\t"+i.getUri());
+            //  CLOUD-PAYMENT-SERVICE	192.168.153.1	8002	http://192.168.153.1:8002
+        });
+
+        return new CommonResult<>(200,"返回成功",this.discoveryClient);
+
+
+    }
+
+
+ }
