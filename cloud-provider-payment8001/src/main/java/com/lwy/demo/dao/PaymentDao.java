@@ -10,5 +10,5 @@ public interface PaymentDao {
 
      int create(Payment payment);
 
-     Payment getPaymentById(long id);
+     Payment getPaymentById(Long id);
 }

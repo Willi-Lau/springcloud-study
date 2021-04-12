@@ -13,7 +13,7 @@ public class ApplicationContextConfig
      * @return
      */
     @Bean
-    @LoadBalanced   //默认负载均衡机制
+    @LoadBalanced   //默认负载均衡机制  如果想用自己的 就把这个注解去掉
     public RestTemplate restTemplate(){
         return new RestTemplate();
     };

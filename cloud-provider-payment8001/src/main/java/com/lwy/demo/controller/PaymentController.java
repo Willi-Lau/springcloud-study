@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j //日志
@@ -93,6 +94,26 @@ public class PaymentController {
 
 
     }
+    /**
+     * 返回端口号，测试负载均衡算法的实现
+     */
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
 
+    /**
+     * 测试 Feign 超时
+     */
+    @GetMapping(value = "/payment/feign/timeout")
+    public String FeignTimeOut() throws InterruptedException {
+        try{
+            TimeUnit.SECONDS.sleep(2);
+        }
+        finally {
+
+        }
+        return "端口号是       "+serverPort;
+    }
 
  }
