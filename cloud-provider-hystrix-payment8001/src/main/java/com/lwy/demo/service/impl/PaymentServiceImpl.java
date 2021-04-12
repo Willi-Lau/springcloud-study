@@ -16,12 +16,10 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     /**
-     *
      * @param id
      * @return
      * fallbackMethod 出事后产生异常后调用得兜底方法
      * commandProperties 具体的值
-     *
      */
     @Override
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandle",commandProperties = {
@@ -33,11 +31,7 @@ public class PaymentServiceImpl implements PaymentService {
              TimeUnit.SECONDS.sleep(timeNum);
         }catch(Exception e ){e.printStackTrace();}
         return Thread.currentThread().getName()+"id是"+id+"success from Timeout"+"耗时"+timeNum+"秒";
-
-//        int i = 1/0;
-//        return Thread.currentThread().getName()+"id是"+id+"success from Timeout";
     }
-
     @Override
     public String paymentInfo_TimeOutHandle(Integer id) {
         return "paymentInfo_TimeOutHandle false 异常方法";
