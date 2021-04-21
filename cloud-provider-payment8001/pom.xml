@@ -13,6 +13,11 @@
 
 <!--    子类实现-->
     <dependencies>
+        <!--包含了sleuth+zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--        引入自定义的配置-->
         <dependency>
             <groupId>com.lwy.springcloud</groupId>

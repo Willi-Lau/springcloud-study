@@ -116,4 +116,10 @@ public class PaymentController {
         return "端口号是       "+serverPort;
     }
 
+    @GetMapping(value = "/payment/sleuth")
+    public String sleuth() throws InterruptedException {
+
+        return "sleuthsleuthsleuthsleuthsleuthsleuthsleuthsleuthsleuth       ";
+    }
+
  }
