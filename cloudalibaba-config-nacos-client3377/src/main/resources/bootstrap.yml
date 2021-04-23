@@ -1,0 +1,23 @@
+# nacos配置
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.40.129:1111 #Nacos服务注册中心地址
+      config:
+        server-addr: 192.168.40.129:1111 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        #group: INFO_GROUP   # 配置分组  除了默认分组 其他的都要写
+        #namespace: 7d8f0f5a-6a53-4785-9686-dd460158e5d4
+
+
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# nacos-config-client-dev.yaml     标准的文件格式  是由 bootstrap.yml spring.application.name +
+#                                                     application.yml  spring.profile.active +
+#                                                    bootstrap.yml  spring.cloud.nacos.config.file-extension 拼接而成
+# nacos-config-client-test.yaml   ----> config.info
