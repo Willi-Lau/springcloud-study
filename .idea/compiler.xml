@@ -20,12 +20,13 @@
         <module name="cloud-consumerconsul-order80" />
         <module name="cloud-provider-payment8002" />
         <module name="cloud-provider-payment8001" />
+        <module name="cloudalibaba-sentinel-service8401" />
         <module name="cloud-consumer-feign-hystrix-order80" />
         <module name="cloudalibaba-consumer-nacos-order83" />
-        <module name="cloud-config-center3344" />
+        <module name="cloud-gateway-gateway9527" />
         <module name="cloudalibaba-provider-payment9002" />
         <module name="cloud-providerconsul-payment8006" />
-        <module name="cloud-gateway-gateway9527" />
+        <module name="cloud-config-center3344" />
         <module name="cloud-consumer-feign-order80" />
         <module name="cloud-config-client3355" />
       </profile>
